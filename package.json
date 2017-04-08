@@ -1,0 +1,38 @@
+{
+  "name": "shopper-challegne",
+  "version": "1.0.0",
+  "description": "Shopper coding challenge",
+  "main": "webpack.config.js",
+  "scripts": {
+      "start": "npm run build-app:dev",
+      "build-app:dev": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base src/ --inline --hot",
+      "build-app:prod": "webpack -p && cp src/index.html dist/index.html",
+      "start-server": "node ./server/server.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@jtyler-dev:jtyler-dev/ShopperChallenge.git"
+  },
+  "author": "jtyler",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "react": "^15.5.2",
+    "react-dom": "^15.5.2"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.0",
+    "node-sass": "^4.5.2",
+    "style-loader": "^0.16.1",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
+  }
+}
