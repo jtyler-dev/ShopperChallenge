@@ -1,0 +1,22 @@
+//overrides of default bootstrap navbar css
+
+.navbar-nav > li > a {
+    padding-top:20px !important;
+    padding-bottom:20px !important;
+}
+
+.navbar {
+    min-height:65px !important;
+}
+
+.navbar-brand {
+    height: 65px;
+    img {
+        width: 149px;
+        height: 30px;
+    }
+}
+
+.navbar-toggle {
+    margin-top: 15px;
+}
