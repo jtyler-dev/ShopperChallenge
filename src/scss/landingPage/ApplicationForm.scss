@@ -1,0 +1,12 @@
+.applicationForm {
+    input[type=text], input[type=password], input[type=email], input[type=tel] {
+        height: 50px;
+        width: 100%;
+        font-size: 16px;
+        padding-left: 15px;
+        margin-top: 10px;
+        border: 1px solid #DBDBDB;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+}
