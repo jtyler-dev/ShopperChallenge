@@ -1,8 +1,18 @@
 //overrides of default bootstrap navbar css
 
 .navbar-nav > li > a {
-    padding-top:20px !important;
-    padding-bottom:20px !important;
+    padding-top:25px !important;
+    padding-bottom:25px !important;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: black;
+}
+
+.txtUnderline:hover {
+    border-bottom: 1px solid black;
 }
 
 .navbar {
@@ -19,4 +29,22 @@
 
 .navbar-toggle {
     margin-top: 15px;
+}
+
+.navbar-default {
+    background-color: white;
+}
+
+.loginBtn {
+    background-color: #F7A700;
+    padding: 4px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 4px;
+    text-transform: uppercase;
+    color:white;
+}
+
+.loginHover:hover {
+    border-bottom: 1px solid white;
 }
