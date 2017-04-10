@@ -26,6 +26,6 @@ class ApplicationForm extends React.Component {
             </form>
         );
     }
-}
+};
 
 module.exports = ApplicationForm;
