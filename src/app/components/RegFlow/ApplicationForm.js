@@ -31,7 +31,7 @@ class ApplicationForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        // do soemthing with the state HERE
+        // do something with the state HERE
 
         if(!this.showFormErrors()) {
             // invalid form

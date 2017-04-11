@@ -7,14 +7,24 @@ class Regflow extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: {},
             step: 1
         }
+
+        this.data = {
+                first_name: null,
+                last_name: null,
+                email: null,
+                phone_number: null,
+                zip_code: null,
+                referral_code: null,
+                agreement: null
+        };
 
         this.showStep = this.showStep.bind(this);
         this.nextStep = this.nextStep.bind(this);
         this.previousStep = this.previousStep.bind(this);
         this.saveValues = this.saveValues.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     nextStep() {
@@ -30,10 +40,13 @@ class Regflow extends React.Component {
      }
 
      saveValues(values){
-
+         this.data = Object.assign({},this.data,values);
      }
 
      handleSubmit() {
+         // if data is all here do a rest call and save the data
+         console.log("-----submit state-------");
+         console.log('component state', JSON.stringify(this.data));
 
      }
 
@@ -47,6 +60,7 @@ class Regflow extends React.Component {
             case 2:
                 return <Agreement
                         saveValues={this.saveValues}
+                        handleSubmit={this.handleSubmit}
                         nextStep={this.nextStep}
                         />
             case 3:

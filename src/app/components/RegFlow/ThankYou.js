@@ -8,7 +8,7 @@ class ThankYou extends React.Component {
                 <div className="text">
                     Thank you for your aplication. We will be in contact with you soon.
                     <br/>
-                    To check the status of your application please login using your email and zip code.
+                    To check the status of your application please login using your email.
                 </div>
                 <Button ref="submitBtn" bsStyle="success" bsSize="large" block type="submit" onClick={this.props.closeModal}>Close</Button>
             </div>

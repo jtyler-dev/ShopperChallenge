@@ -19,6 +19,8 @@ class Agreement extends React.Component {
 
         if(isChecked) {
             this.props.saveValues({agreement: isChecked});
+            //TODO : pop up spinner gif wait until submitted and then move to next screen
+            this.props.handleSubmit();
             this.props.nextStep();
         }
     }
@@ -48,16 +50,14 @@ class Agreement extends React.Component {
                     By selecting 'Yes' below I am agreeing the terms and conditions set forth from Instacart
                     <div className="checkboxContainer">
                         <input type="checkbox" id="backgroundCheck" ref="bgCheckBox" name="backgroundCheck" value="backgroundCheck" onChange={this.handleChange}/>
-                        <label for="backgroundCheck">Yes, allow Instacart to preform a background check on me.</label>
+                        <label htmlFor="backgroundCheck">Yes, allow Instacart to preform a background check on me.</label>
                     </div>
                 </div>
 
                 <Button ref="submitBtn" bsStyle="success" bsSize="large" block type="submit" onClick={this.nextStep} disabled={this.state.isNotChecked}>Submit Application</Button>
             </div>
-
         );
     }
 };
-
 
 module.exports = Agreement;
