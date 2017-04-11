@@ -78,9 +78,9 @@ class ApplicationForm extends React.Component {
             if (validity.valueMissing) {
                 error.textContent = `${placeholder} is a required field`;
             } else if (validity.typeMismatch) {
-                error.textContent = `${label} should be a valid email address`;
+                error.textContent = `${placeholder} should be a valid email address`;
             } else if (isPassword && validity.patternMismatch) {
-                error.textContent = `${label} should be longer than 4 chars`;
+                error.textContent = `${placeholder} should be longer than 4 chars`;
             }
             return false;
         }

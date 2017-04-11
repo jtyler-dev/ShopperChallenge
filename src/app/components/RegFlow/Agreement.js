@@ -36,13 +36,13 @@ class Agreement extends React.Component {
                     Agreement for Running a background check.
                 </div>
                 <div className="agreementText">
-                    Program" shall mean the copyright license to make, use, sell,
-                    offer for sale, have made, use, practice, sell, and offer for sale,
-                    have made, use, practice, sell, and offer for sale, have made, and/or
-                    otherwise dispose of Modifications or portions thereof and corresponding
-                    documentation released with the terms and conditions of merchantability
-                    and fitness for a fee. You may Distribute verbatim copies may or may not be
-                    used for software interchange; or, c)
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Praesent ligula lacus, viverra nec nisl eget, euismod tristique tellus.
+                    Quisque ligula metus, ultricies a cursus sit amet, luctus eu purus.
+                    Quisque a metus id lorem ultrices molestie. Orci varius natoque penatibus
+                    et magnis dis parturient montes, nascetur ridiculus mus. Phasellus id
+                    lorem facilisis, consectetur nisi sed, faucibus enim. Maecenas euismod
+                    ipsum vel enim luctus, a efficitur purus molestie.
                 </div>
                 <div className="agreementCheck">
                     By selecting 'Yes' below I am agreeing the terms and conditions set forth from Instacart
