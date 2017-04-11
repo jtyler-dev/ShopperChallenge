@@ -1,5 +1,5 @@
 .applicationFormContainer {
-    padding: 10px;
+    padding: 15px;
 
     .applicationForm {
         input[type=text], input[type=password], input[type=email], input[type=tel] {
@@ -15,13 +15,17 @@
     }
 
     .nameField {
-        input[type=text] {
+        .nameContainer {
             width: 49%;
         }
+    }
 
-        .lastName {
-            float: right;
-        }
+    .fLeft {
+        float: left;
+    }
+
+    .fRight {
+        float: right;
     }
 
     .formfields {
@@ -31,5 +35,19 @@
     .disclaimerText {
         text-align: center;
         padding: 10px;
+    }
+
+    input.active:valid {
+      box-shadow: 0 0 5px 1px green;
+    }
+
+    input.active:invalid {
+        box-shadow: 0 0 5px 1px red;
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
     }
 }

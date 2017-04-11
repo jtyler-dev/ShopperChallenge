@@ -1,0 +1,22 @@
+.agreementContainer{
+    padding: 15px;
+
+    .agreementTitle {
+        font-size: 18;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    .agreementText {
+        margin-bottom: 10px;
+    }
+
+    .agreementCheck {
+        margin-bottom: 10px;
+
+        .checkboxContainer {
+            width: 80%;
+            margin: 0 auto;
+        }
+    }
+
+}

@@ -1,8 +1,9 @@
 import React from 'react';
 import {Glyphicon, Col, Grid, Row, Button, Modal} from 'react-bootstrap';
-import ApplicationForm from './ApplicationForm';
 import InfoCard from './InfoCard';
 import JobPostings from './JobPostings';
+
+import Regflow from '../Regflow/Regflow';
 
 class LandingPage extends React.Component {
     constructor(props) {
@@ -32,7 +33,8 @@ class LandingPage extends React.Component {
                     <Modal.Header closeButton>
                        <Modal.Title id="contained-modal-title">Apply in under 5 minutes</Modal.Title>
                      </Modal.Header>
-                    <ApplicationForm closeModal={this.close}/>
+                    {/* <ApplicationForm closeModal={this.close}/> */}
+                    <Regflow closeModal={this.close}/>
                 </Modal>
 
                 <section className="introSection">
