@@ -17,13 +17,16 @@
   "author": "jtyler",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.16.1",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
+    "cors": "^2.8.3",
     "express": "^4.15.2",
     "react": "^15.5.2",
     "react-bootstrap": "^0.30.8",
     "react-dom": "^15.5.2",
-    "react-router": "^4.0.0"
+    "react-router": "^4.0.0",
+    "sqlite": "^2.5.0"
   },
   "devDependencies": {
     "babel": "^6.23.0",

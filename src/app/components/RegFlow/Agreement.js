@@ -10,6 +10,7 @@ class Agreement extends React.Component {
         }
         this.nextStep = this.nextStep.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleUpload = this.handleUpload.bind(this);
     }
 
     nextStep(e) {
@@ -20,9 +21,15 @@ class Agreement extends React.Component {
         if(isChecked) {
             this.props.saveValues({agreement: isChecked});
             //TODO : pop up spinner gif wait until submitted and then move to next screen
-            this.props.handleSubmit();
-            this.props.nextStep();
+            this.props.handleSubmit(this.handleUpload);
+            //this.props.nextStep();
         }
+    }
+
+    handleUpload() {
+        /// turn off spinner
+        // go to next page
+        this.props.nextStep();
     }
 
     handleChange(e) {

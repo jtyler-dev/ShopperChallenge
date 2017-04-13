@@ -36,16 +36,9 @@ class ApplicationForm extends React.Component {
         if(!this.showFormErrors()) {
             // invalid form
         } else {
-            // send data, close modal
-            // if(this.props.closeModal) {
-            //     //close the modal we are in
-            //     this.props.closeModal();
-            // }
             this.props.saveValues(this.state);
             this.props.nextStep();
         }
-
-
     }
 
     showFormErrors() {
@@ -71,7 +64,8 @@ class ApplicationForm extends React.Component {
         const validity = this.refs[refName].validity;
         const placeholder = this.refs[refName].getAttribute("placeholder");
         const error = document.getElementById(`${refName}Error`);
-        const isPassword = refName.indexOf('password') !== -1;
+        const isZip = refName.indexOf('zip_code') !== -1;
+        const isPhone = refName.indexOf('phone_number') !== -1;
 
 
         if (!validity.valid) {
@@ -79,8 +73,10 @@ class ApplicationForm extends React.Component {
                 error.textContent = `${placeholder} is a required field`;
             } else if (validity.typeMismatch) {
                 error.textContent = `${placeholder} should be a valid email address`;
-            } else if (isPassword && validity.patternMismatch) {
-                error.textContent = `${placeholder} should be longer than 4 chars`;
+            } else if (isZip && validity.patternMismatch) {
+                error.textContent = `${placeholder} can only be alphanumic characters`;
+            }else if (isPhone && validity.patternMismatch) {
+                error.textContent = `${placeholder} should follow the pattern of xxx-xxx-xxxx`;
             }
             return false;
         }
@@ -132,9 +128,10 @@ class ApplicationForm extends React.Component {
                             <input  type="tel"
                                     name="phone_number"
                                     ref="phone_number"
-                                    placeholder="Cell Phone Number"
+                                    placeholder="Cell Phone Number (xxx-xxx-xxxx)"
                                     value={this.state.phone_number}
                                     onChange={ this.handleChange }
+                                    pattern="^\d{3}-\d{3}-\d{4}$"
                                     required/>
                             <div className="error" id="phone_numberError" />
                         </div>
@@ -145,6 +142,7 @@ class ApplicationForm extends React.Component {
                                     placeholder="Zip Code"
                                     value={this.state.zip_code}
                                     onChange={this.handleChange}
+                                     pattern="[a-zA-Z0-9]+"
                                     required/>
                             <div className="error" id="zip_codeError" />
                         </div>

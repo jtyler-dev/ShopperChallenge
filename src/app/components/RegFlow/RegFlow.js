@@ -2,6 +2,8 @@ import React from 'react';
 import Agreement from './Agreement';
 import ApplicationForm from './ApplicationForm';
 import ThankYou from './ThankYou';
+import DeviceSelect from './DeviceSelect';
+import axios from 'axios';
 
 class Regflow extends React.Component {
     constructor(props) {
@@ -17,7 +19,8 @@ class Regflow extends React.Component {
                 phone_number: null,
                 zip_code: null,
                 referral_code: null,
-                agreement: null
+                agreement: null,
+                phone_type: null
         };
 
         this.showStep = this.showStep.bind(this);
@@ -43,10 +46,19 @@ class Regflow extends React.Component {
          this.data = Object.assign({},this.data,values);
      }
 
-     handleSubmit() {
+     handleSubmit(cb) {
          // if data is all here do a rest call and save the data
          console.log("-----submit state-------");
          console.log('component state', JSON.stringify(this.data));
+
+         axios.post('http://localhost:8080/api/', this.data)
+          .then(function (response) {
+              cb();
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
 
      }
 
@@ -74,7 +86,6 @@ class Regflow extends React.Component {
                 {this.showStep()}
             </div>
         );
-
     }
 };
 
