@@ -51,8 +51,9 @@ class Regflow extends React.Component {
          console.log("-----submit state-------");
          console.log('component state', JSON.stringify(this.data));
 
-         axios.post('http://localhost:8080/api/', this.data)
+         axios.post('http://localhost:8080/api/user', this.data)
           .then(function (response) {
+              //todo: check for errors
               cb();
             console.log(response);
           })
