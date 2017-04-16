@@ -12,9 +12,12 @@ class InstacartNavbar extends React.Component {
         this.loginPressed = this.loginPressed.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
         this.onEmailChange = this.onEmailChange.bind(this);
+        this.cancel = this.cancel.bind(this);
     }
 
     loginPressed(e) {
+        e.preventDefault();
+
         this.setState({
           logInState : 2
         })
@@ -30,6 +33,14 @@ class InstacartNavbar extends React.Component {
         });
     }
 
+    cancel(e) {
+        e.preventDefault();
+
+        this.setState({
+          logInState : 1
+        })
+    }
+
     getNavItems() {
         switch (this.state.logInState) {
             case 1:
@@ -38,11 +49,13 @@ class InstacartNavbar extends React.Component {
                        </Nav>;
             case 2:
                 return <Navbar.Form pullRight>
-                            <FormGroup controlId="emailLogIn">
+                            <FormGroup >
                                 <FormControl type="email" placeholder="Email" id="email" onChange={this.onEmailChange}/>
                             </FormGroup>
                             {' '}
                             <Button type="submit" onClick={this.handleLogin}>Login</Button>
+                            <Button type="submit" onClick={this.cancel}>Cancel</Button>
+
                       </Navbar.Form>;
             case 3:
                 return <Nav pullRight>Hello</Nav>;

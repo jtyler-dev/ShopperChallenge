@@ -16,7 +16,7 @@ Shopper Coding Challenge
 config options are available in the server folder in the file called serverConfig.json.
 
 - 'dbLocation' - Where the app tries to connect to the db. defaults to "../db/database.sqlite"
-- 'port' - change what port the app is run on: Default is 8080
+- 'port' - change what port the app is run on: Default is 8080  
 - 'isDemo' - built in functionality to later expand this into a production app. leave this true
 ```
 {
@@ -33,6 +33,9 @@ are in the 'YYYY-MM-DD' format. Ive made a slight modification to the return val
 My version of the return will give the bucket start from that date until Sunday if the first applicant is
 in the middle of the week. As well, if the last applicant ends before that Sunday, the last bucket will show monday
 until that date. I changed it to be this way becasue I feel that it makes a more accurate view of the
+
+# Notes
+- The 2 warnings in the console are from bootstrap-react which has not updated their package to the new react standards yet
 
 # Credits
  - background img from https://pixabay.com/en/supermarket-stalls-coolers-market-949913/
