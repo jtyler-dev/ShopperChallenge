@@ -13,9 +13,7 @@ class InstacartNavbar extends React.Component {
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav pullRight>
-                      <NavItem eventKey={1} href="#"><span className="txtUnderline">Positions</span></NavItem>
-                      <NavItem eventKey={2} href="#"><span className="txtUnderline">FAQ</span></NavItem>
-                      <NavItem eventKey={3} href="#"><span className="loginBtn"><span className="loginHover">LOG IN</span></span></NavItem>
+                      <NavItem eventKey={1} href="#"><span className="loginBtn"><span className="loginHover">LOG IN</span></span></NavItem>
                     </Nav>
                 </Navbar.Collapse>
               </Navbar>

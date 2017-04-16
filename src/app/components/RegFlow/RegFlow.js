@@ -28,18 +28,25 @@ class Regflow extends React.Component {
         this.previousStep = this.previousStep.bind(this);
         this.saveValues = this.saveValues.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.errorScreen = this.errorScreen.bind(this);
     }
 
     nextStep() {
         this.setState({
           step : this.state.step + 1
-        })
+        });
      }
 
      previousStep() {
         this.setState({
           step : this.state.step - 1
-        })
+        });
+     }
+
+     errorScreen() {
+         this.setState({
+           step : 5
+         });
      }
 
      saveValues(values){
@@ -59,6 +66,7 @@ class Regflow extends React.Component {
           })
           .catch(function (error) {
             console.log(error);
+            this.errorScreen();
           });
 
      }
@@ -71,13 +79,20 @@ class Regflow extends React.Component {
                             nextStep={this.nextStep}
                         />
             case 2:
+                return <DeviceSelect
+                            saveValues={this.saveValues}
+                            nextStep={this.nextStep}
+                        />
+            case 3:
                 return <Agreement
                         saveValues={this.saveValues}
                         handleSubmit={this.handleSubmit}
                         nextStep={this.nextStep}
                         />
-            case 3:
+            case 4:
                 return <ThankYou closeModal={this.props.closeModal}/>
+            case 5:
+                return <Error closeModal={this.props.closeModal}/>
         };
     }
 
