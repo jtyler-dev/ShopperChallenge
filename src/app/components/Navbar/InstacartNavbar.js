@@ -1,7 +1,54 @@
 import React from 'react';
-import { Button, Nav, Navbar, NavDropdown, MenuItem, NavItem } from 'react-bootstrap';
+import { Button, Nav, Navbar, NavDropdown, MenuItem, NavItem, FormGroup, FormControl } from 'react-bootstrap';
 
 class InstacartNavbar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            logInState : 1,
+            email: ''
+        };
+
+        this.loginPressed = this.loginPressed.bind(this);
+        this.handleLogin = this.handleLogin.bind(this);
+        this.onEmailChange = this.onEmailChange.bind(this);
+    }
+
+    loginPressed(e) {
+        this.setState({
+          logInState : 2
+        })
+    }
+
+    handleLogin(e) {
+        e.preventDefault();
+    }
+
+    onEmailChange(e) {
+        this.setState({
+            [e.target.id] : e.target.value
+        });
+    }
+
+    getNavItems() {
+        switch (this.state.logInState) {
+            case 1:
+                return <Nav pullRight>
+                            <NavItem eventKey={1} onClick={this.loginPressed}><span className="loginBtn"><span className="loginHover">LOG IN</span></span></NavItem>
+                       </Nav>;
+            case 2:
+                return <Navbar.Form pullRight>
+                            <FormGroup controlId="emailLogIn">
+                                <FormControl type="email" placeholder="Email" id="email" onChange={this.onEmailChange}/>
+                            </FormGroup>
+                            {' '}
+                            <Button type="submit" onClick={this.handleLogin}>Login</Button>
+                      </Navbar.Form>;
+            case 3:
+                return <Nav pullRight>Hello</Nav>;
+            }
+    }
+
     render() {
         return(
             <Navbar collapseOnSelect>
@@ -12,9 +59,7 @@ class InstacartNavbar extends React.Component {
                    <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>
-                    <Nav pullRight>
-                      <NavItem eventKey={1} href="#"><span className="loginBtn"><span className="loginHover">LOG IN</span></span></NavItem>
-                    </Nav>
+                        {this.getNavItems()}
                 </Navbar.Collapse>
               </Navbar>
         );

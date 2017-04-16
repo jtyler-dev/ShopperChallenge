@@ -1,5 +1,5 @@
 {
     "isDemo" : true,
     "port" : 8080,
-    "dbLocation" : ""
+    "dbLocation" : "../db/database.sqlite"
 }

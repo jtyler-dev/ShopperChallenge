@@ -3,13 +3,16 @@ import Agreement from './Agreement';
 import ApplicationForm from './ApplicationForm';
 import ThankYou from './ThankYou';
 import DeviceSelect from './DeviceSelect';
+import Error from './Error';
+
 import axios from 'axios';
 
 class Regflow extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            step: 1
+            step: 1,
+            errMsg: ''
         }
 
         this.data = {
@@ -43,10 +46,8 @@ class Regflow extends React.Component {
         });
      }
 
-     errorScreen() {
-         this.setState({
-           step : 5
-         });
+     errorScreen(errMsg) {
+         this.setState({step : 5, errMsg: errMsg});
      }
 
      saveValues(values){
@@ -57,18 +58,21 @@ class Regflow extends React.Component {
          // if data is all here do a rest call and save the data
          console.log("-----submit state-------");
          console.log('component state', JSON.stringify(this.data));
+         var that = this;
 
          axios.post('http://localhost:8080/api/user', this.data)
           .then(function (response) {
-              //todo: check for errors
-              cb();
-            console.log(response);
+              if(response.data.isError) {
+                  that.errorScreen(response.data.message);
+              } else {
+                  sessionStorage.setItem('userData', JSON.stringify(that.data));
+                  cb();
+              }
           })
           .catch(function (error) {
             console.log(error);
-            this.errorScreen();
+            that.errorScreen(error);
           });
-
      }
 
     showStep() {
@@ -88,11 +92,12 @@ class Regflow extends React.Component {
                         saveValues={this.saveValues}
                         handleSubmit={this.handleSubmit}
                         nextStep={this.nextStep}
+                        error={this.errorScreen}
                         />
             case 4:
                 return <ThankYou closeModal={this.props.closeModal}/>
             case 5:
-                return <Error closeModal={this.props.closeModal}/>
+                return <Error msg={this.state.errMsg} closeModal={this.props.closeModal}/>
         };
     }
 

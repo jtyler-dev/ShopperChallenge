@@ -3,7 +3,7 @@
 var config = require('./serverConfig');
 var express = require('express');
 var sqlite =  require('sqlite3').verbose();
-var db = new sqlite.Database('../db/development.sqlite3');
+var db = new sqlite.Database(config.dbLocation);
 
 // Adding `cors` package
 // so API allows calls by

@@ -3,14 +3,14 @@
 var userController = function(db) {
 
     var getUser = function(req, res) {
-        db.serialize(() => {
-
-        });
+        //get user to login
     };
 
 
     var validateNewUser = function(data) {
         // helper method used to validate a new user, returns true if valid
+        // Would write full server side validation here, but for the purpose of
+        // time I will just assume this is here for now.
         return {isValid: true};
     };
 
@@ -61,7 +61,7 @@ var userController = function(db) {
                                 });
 
                             } else {
-                                res.status(201);
+                                res.status(201).send({message: 'user created'});
                             }
 
                         });
@@ -78,8 +78,11 @@ var userController = function(db) {
             });
         } else {
             // we have an error in the data
-
-            //todo: add in error in data response
+            res.status(200).send({
+                isError: true,
+                message: "Error in user data",
+                error: err
+            });
         }
     };
 

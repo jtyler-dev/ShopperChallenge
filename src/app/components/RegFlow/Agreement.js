@@ -22,7 +22,6 @@ class Agreement extends React.Component {
             this.props.saveValues({agreement: isChecked});
             //TODO : pop up spinner gif wait until submitted and then move to next screen
             this.props.handleSubmit(this.handleUpload);
-            //this.props.nextStep();
         }
     }
 
