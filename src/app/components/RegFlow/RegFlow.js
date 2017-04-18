@@ -1,9 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Agreement from './Agreement';
 import ApplicationForm from './ApplicationForm';
 import ThankYou from './ThankYou';
 import DeviceSelect from './DeviceSelect';
 import Error from './Error';
+import * as UserActions from '../../actions/userActions';
+
 
 import axios from 'axios';
 
@@ -56,8 +59,7 @@ class Regflow extends React.Component {
 
      handleSubmit(cb) {
          // if data is all here do a rest call and save the data
-         console.log("-----submit state-------");
-         console.log('component state', JSON.stringify(this.data));
+        
          var that = this;
 
          axios.post('http://localhost:8080/api/user', this.data)
@@ -65,13 +67,13 @@ class Regflow extends React.Component {
               if(response.data.isError) {
                   that.errorScreen(response.data.message);
               } else {
-                  sessionStorage.setItem('userData', JSON.stringify(that.data));
+                  that.props.setUserData(that.data);
                   cb();
               }
           })
           .catch(function (error) {
             console.log(error);
-            that.errorScreen(error);
+            that.errorScreen(error.toString());
           });
      }
 
@@ -110,5 +112,20 @@ class Regflow extends React.Component {
     }
 };
 
+// Maps state from store to props
+const mapStateToProps = (state, ownProps) => {
+  return {
+    // You can now say this.props.books
+    userData: state.userData
+  }
+};
 
-module.exports = Regflow;
+// Maps actions to props
+const mapDispatchToProps = (dispatch) => {
+  return {
+  // You can now say this.props.setUserData
+    setUserData: data => dispatch(UserActions.setUserData(data))
+  }
+};
+
+module.exports = connect(mapStateToProps, mapDispatchToProps)(Regflow);

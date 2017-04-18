@@ -33,7 +33,7 @@ class LandingPage extends React.Component {
                     <Modal.Header closeButton>
                        <Modal.Title id="contained-modal-title">Apply in under 5 minutes</Modal.Title>
                      </Modal.Header>
-                    <Regflow userData={this.props.userData}closeModal={this.close}/>
+                    <Regflow closeModal={this.close}/>
                 </Modal>
 
                 <section className="introSection">

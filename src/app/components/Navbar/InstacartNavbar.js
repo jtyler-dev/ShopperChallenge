@@ -1,5 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Button, Nav, Navbar, NavDropdown, MenuItem, NavItem, FormGroup, FormControl } from 'react-bootstrap';
+import * as UserActions from '../../actions/userActions';
+import { Link } from 'react-router-dom'
 
 class InstacartNavbar extends React.Component {
     constructor(props) {
@@ -55,28 +58,57 @@ class InstacartNavbar extends React.Component {
                             {' '}
                             <Button type="submit" onClick={this.handleLogin}>Login</Button>
                             <Button type="submit" onClick={this.cancel}>Cancel</Button>
-
                       </Navbar.Form>;
-            case 3:
-                return <Nav pullRight>Hello</Nav>;
             }
     }
 
     render() {
+        let loginLoc = this.getNavItems();
+        if(this.props.userData.email) {
+            // had to write a custom solution, becasue Link and react-bootstrap Navbar
+            // didnt want to play nice
+            loginLoc = <ul className="nav navbar-nav navbar-right">
+                            <li role="presentation" className="">
+                                <Link to="/user">
+                                   <span className="userInfo">
+                                        Hello, {this.props.userData.first_name}
+                                      </span>
+                                </Link>
+                            </li>
+                        </ul>
+        }
         return(
             <Navbar collapseOnSelect>
                 <Navbar.Header>
                   <Navbar.Brand>
-                    <a href="#"><img src="./img/instacartLogo.png"/></a>
+                      <Link to="/">
+                        <img src="./img/instacartLogo.png"/>
+                      </Link>
                   </Navbar.Brand>
                    <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>
-                        {this.getNavItems()}
+                        {loginLoc}
                 </Navbar.Collapse>
               </Navbar>
         );
     }
 }
 
-module.exports = InstacartNavbar;
+// Maps state from store to props
+const mapStateToProps = (state, ownProps) => {
+  return {
+    // You can now say this.props.userData
+    userData: state.userData
+  }
+};
+
+// Maps actions to props
+const mapDispatchToProps = (dispatch) => {
+  return {
+  // You can now say this.props.setUserData
+    setUserData: data => dispatch(UserActions.setUserData(data))
+  }
+};
+
+module.exports = connect(mapStateToProps, mapDispatchToProps)(InstacartNavbar);

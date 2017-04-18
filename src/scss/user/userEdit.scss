@@ -1,0 +1,55 @@
+.userEdit {
+
+    .userEmailID {
+        padding-top: 20px;
+    }
+
+    .userEditContainer {
+        padding: 15px;
+
+        .applicationForm {
+            input[type=text], input[type=password], input[type=email], input[type=tel] {
+                height: 50px;
+                width: 100%;
+                font-size: 16px;
+                padding-left: 15px;
+                margin-top: 10px;
+                border: 1px solid #DBDBDB;
+                border-radius: 3px;
+                box-sizing: border-box;
+            }
+        }
+
+        .nameField {
+            .nameContainer {
+                width: 49%;
+            }
+        }
+
+        .fLeft {
+            float: left;
+        }
+
+        .fRight {
+            float: right;
+        }
+
+        .formfields {
+            margin-bottom: 10px;
+        }
+
+        input.active:valid {
+          box-shadow: 0 0 5px 1px green;
+        }
+
+        input.active:invalid {
+            box-shadow: 0 0 5px 1px red;
+        }
+
+        .error {
+          color: red;
+          font-size: 12px;
+          margin-top: 5px;
+        }
+    }
+}

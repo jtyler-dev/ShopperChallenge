@@ -1,13 +1,12 @@
-
 /*
  * action types
  */
- export const ADD_USER_DATA = 'ADD_USER_DATA';
+ export const SET_USER_DATA = 'SET_USER_DATA';
 
 
-export function addUserData(data) {
+export function setUserData(data) {
     return {
-        type: 'ADD_USER_DATA',
+        type: SET_USER_DATA,
         data
     };
 };

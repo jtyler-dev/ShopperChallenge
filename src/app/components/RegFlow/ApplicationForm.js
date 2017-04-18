@@ -31,8 +31,6 @@ class ApplicationForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        // do something with the state HERE
-
         if(!this.showFormErrors()) {
             // invalid form
         } else {
@@ -89,7 +87,7 @@ class ApplicationForm extends React.Component {
     render() {
         return(
             <div className="applicationFormContainer">
-                <div className="applicationForm" onSubmit={this.handleSubmit} noValidate>
+                <div className="applicationForm" noValidate>
                     <div className="formfields">
                         <div className="nameField">
                             <div className="nameContainer fLeft">
