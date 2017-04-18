@@ -11,7 +11,6 @@ Shopper Coding Challenge
 - start up the server (node ./sever/server.js)
 - start the app (npm start)
 
-
 # Config Options
 config options are available in the server folder in the file called serverConfig.json.
 
@@ -25,6 +24,14 @@ config options are available in the server folder in the file called serverConfi
     "dbLocation" : "../db/database.sqlite"
 }
 ```
+
+# Getting to the user edit screen
+- Since Login is not used in this challenge, the login box is just for placement.
+- To get to the user edit screen, register a new user
+- once registartion is complete, you will see that the login button has changed from 'login' to 'Hello, <First_name>'
+- clicking on 'Hello, <First_name>' will bring you to the edit screen
+- NOTE: User changes are not persisted to the data base
+
 
 # Using the API
 ## GET /api/funnels.json?start_date=<>&end_date=<>
